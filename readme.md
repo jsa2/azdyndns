@@ -14,7 +14,7 @@
 - The code does barely any error handling. If something is wrong it will timeout, or throw some of the errors in a promise rejection
 
 # requirements
-- Functions runtime on extensions, and functions runtime including NodeJS installed on the desktop you are planning 
+- Functions runtime on extensions, and functions runtime including NodeJS installed on the desktop you are planning to deploy from 
 - SPN for local testing
 - Azure Function (Consumption, Windows App Service)
 - NodeJS runtime 12
@@ -41,6 +41,10 @@ create client.json file in the function folder
 }
 ```
 run func host start --javascript
+call function locally 
+```
+Invoke-RestMethod  http://localhost:7071/api/dyndnsfunc -Headers @{'x-forwarded-for'="1.2.2.4:54466"}
+```
 
 # Expected results
 if all checks out: 
